@@ -2,7 +2,7 @@ angular.module('universes').config(function ($routeProvider) {
     $routeProvider
         .when('/', {
             controller: 'MainController',
-            templateUrl: 'templates/not_found.html'
+            templateUrl: 'templates/races.html'
         })
         .otherwise({
             controller: 'NotFoundController',
