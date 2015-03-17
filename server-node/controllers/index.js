@@ -119,17 +119,17 @@ router.delete('/characters/:id', function (req, res) {
 
 var User = require('../models/user.model');
 
-router.get('/users', function(req, res) {
+router.get('/users', function (req, res) {
     var token = req.header('authorization');
     if (!token) return res.status(401).send('No token supplied');
     var user = jwt.decode(token, secrets.jwt);
 
-    User.find(function(err, users) {
+    User.find(function (err, users) {
         return res.json(users);
     });
 });
 
-router.post('/users', function(req, res) {
+router.post('/users', function (req, res) {
     var token = req.header('authorization');
     if (!token) return res.status(401).send('No token supplied');
     var user = jwt.decode(token, secrets.jwt);
@@ -137,12 +137,12 @@ router.post('/users', function(req, res) {
     var newUser = req.body;
 
     if (!newUser
-            || !newUser.username
-            || !newUser.password) {
+        || !newUser.username
+        || !newUser.password) {
         return res.status(412).send('Request body must contain {username, password}');
     }
 
-    bcrypt.hash(newUser.password, 10, function(err, hash) {
+    bcrypt.hash(newUser.password, 10, function (err, hash) {
         console.log(newUser);
         delete newUser.password;
         newUser.passwordHash = hash;
@@ -151,6 +151,16 @@ router.post('/users', function(req, res) {
         user.save();
 
         return res.status(201).json(user);
+    });
+});
+
+router.delete('/users/:id', function (req, res) {
+    User.findByIdAndRemove(req.params.id, function (err, removedUser) {
+        if (!removedUser) {
+            return res.status(404).send('No user with id: ' + req.params.id);
+        }
+
+        return res.status(204).json(removedUser);
     });
 });
 

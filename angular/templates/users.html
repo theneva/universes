@@ -1,0 +1,33 @@
+<h1>Users</h1>
+
+<table class="table">
+    <tr>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Created at</th>
+    </tr>
+    <tr>
+        <td>
+            <form ng-submit="createUser(username, password)">
+                <input type="text" class="form-control" placeholder="Username" ng-model="username"/>
+            </form>
+        </td>
+        <td>
+            <form ng-submit="createUser(username, password)">
+                <input type="password" class="form-control" placeholder="password" ng-model="password"/>
+            </form>
+        </td>
+        <td></td>
+        <td>
+            <button type="submit" class="btn btn-success">Create</button>
+        </td>
+    </tr>
+    <tr ng-repeat="user in users">
+        <td>{{user.username}}</td>
+        <td>-</td>
+        <td>{{user.createdAt | date: 'short'}}</td>
+        <td>
+            <button class="btn btn-danger btn-sm" ng-click="removeUser(user._id)">Remove</button>
+        </td>
+    </tr>
+</table>
