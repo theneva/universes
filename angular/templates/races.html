@@ -1,5 +1,10 @@
 <h1>Races</h1>
 
+<div class="form-group">
+    <label>Search</label>
+    <input type="text" class="form-control" placeholder="Search" ng-model="raceFilter"/>
+</div>
+
 <table class="table">
     <tr>
         <th>Race type</th>
@@ -27,7 +32,7 @@
             <button type="submit" class="btn btn-success" ng-click="createRace(raceType, earType)">Create</button>
         </td>
     </tr>
-    <tr ng-repeat="race in races | orderBy: '-createdAt'">
+    <tr ng-repeat="race in races | filter: raceFilter | orderBy: '-createdAt'">
         <td>{{race.raceType}}</td>
         <td>{{race.earType}}</td>
         <td>{{race.createdAt | date:'short'}}</td>
