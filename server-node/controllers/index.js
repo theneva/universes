@@ -83,14 +83,12 @@ router.put('/characters/:id', function (req, res) {
         }
 
         for (var field in updatedCharacter) {
-            console.log(field);
             character[field] = updatedCharacter[field];
         }
 
-        console.log(character);
         character.save();
         return character;
-    })
+    });
 });
 
 router.post('/characters', function (req, res) {
@@ -143,7 +141,6 @@ router.post('/users', function (req, res) {
     }
 
     bcrypt.hash(newUser.password, 10, function (err, hash) {
-        console.log(newUser);
         delete newUser.password;
         newUser.passwordHash = hash;
 
