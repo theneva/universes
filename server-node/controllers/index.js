@@ -152,6 +152,10 @@ router.post('/users', function (req, res) {
 });
 
 router.delete('/users/:id', function (req, res) {
+    var token = req.header('authorization');
+    if (!token) return res.status(401).send('No token supplied');
+    var user = jwt.decode(token, secrets.jwt);
+
     User.findByIdAndRemove(req.params.id, function (err, removedUser) {
         if (!removedUser) {
             return res.status(404).send('No user with id: ' + req.params.id);
