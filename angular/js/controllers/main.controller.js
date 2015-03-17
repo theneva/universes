@@ -1,8 +1,6 @@
 angular.module('universes').controller('MainController', function ($scope, $http) {
     $http.get('/api/races')
         .success(function (races) {
-            console.log('received races:');
-            console.log(races);
             $scope.races = races;
         });
 
