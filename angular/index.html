@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" ng-app="universes">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <title>Universes</title>
+</head>
+<body ng-controller="MainController">
+
+<div class="container">
+    <h1>Races</h1>
+
+    <table class="table">
+        <tr>
+            <th>Race type</th>
+            <th>Ear type</th>
+            <th>Created at</th>
+        </tr>
+        <tr>
+            <td>
+                <form ng-submit="createRace(raceType, earType)">
+                    <div class="form-group">
+                        <input class="form-control" type="text" placeholder="Race type" ng-model="raceType"/>
+                    </div>
+                </form>
+            </td>
+            <td>
+                <form ng-submit="createRace(raceType, earType)">
+                    <div class="form-group">
+                        <input class="form-control" type="text" placeholder="Ear type" ng-model="earType"/>
+                    </div>
+                </form>
+            </td>
+            <td></td>
+            <td>
+                <button type="submit" class="btn btn-success" ng-click="createRace(raceType, earType)">Create</button>
+            </td>
+        </tr>
+        <tr ng-repeat="race in races | orderBy: '-createdAt'">
+            <td>{{race.raceType}}</td>
+            <td>{{race.earType}}</td>
+            <td>{{race.createdAt | date:'short'}}</td>
+            <td>
+                <button class="btn btn-danger btn-sm" ng-click="removeRace(race._id)">Remove</button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<script src="bower_components/lodash/lodash.min.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.min.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

@@ -8,7 +8,7 @@ var nodemon = require('gulp-nodemon');
 var install = require('gulp-install');
 var livereload = require('gulp-livereload');
 
-var angularPath = './dashboard-angular';
+var angularPath = './angular';
 var assetsPath = angularPath.concat('/assets');
 var angularModulePath = angularPath.concat('/js/module.js');
 var angularJsPath = angularPath.concat('/js/**/*.js');
@@ -17,7 +17,7 @@ var angularIndexPath = angularPath.concat('/index.html');
 var excludeAngularBowerComponents = '!'.concat(angularJsPath).concat('bower_components/**');
 
 var nodePath = './server-node';
-var nodeScriptPath = nodePath.concat('/office-analysis-server-node.js');
+var nodeScriptPath = nodePath.concat('/universes.js');
 var excludeServerNodeModules = '!'.concat(nodePath).concat('node_modules/**');
 
 gulp.task('dependencies', function () {
@@ -77,5 +77,3 @@ gulp.task('dev:node', function () {
 gulp.task('dev', ['hint', 'dependencies', 'dev:angular', 'dev:node'], function () {
     livereload.listen();
 });
-Status API Training Shop Blog About
-© 2015 GitHub, Inc. Terms Privacy Security Contact
