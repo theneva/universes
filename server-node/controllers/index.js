@@ -28,4 +28,28 @@ router.delete('/races/:id', function (req, res) {
     });
 });
 
+var Character = require('../models/character.model');
+
+router.get('/characters', function(req, res) {
+    Character.find(function(err, characters) {
+        res.json(characters);
+    });
+});
+
+router.post('/characters', function(req, res) {
+    var character = new Character(req.body);
+    character.save();
+    res.status(201).json(character);
+});
+
+router.delete('/characters/:id', function(req, res) {
+    Character.findByIdAndRemove(req.params.id, function(err, removedCharacter) {
+        if (!removedCharacter) {
+            return res.status(404).send('No character with id: ' + req.params.id);
+        }
+
+        return res.status(204).json(removedCharacter);
+    });
+});
+
 module.exports = router;

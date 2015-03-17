@@ -64,7 +64,7 @@ gulp.task('watch:angular', function () {
     });
 });
 
-gulp.task('dev:angular', ['watch:angular']);
+gulp.task('dev:angular', ['concatJs', 'stylus', 'watch:angular']);
 
 gulp.task('dev:node', function () {
     nodemon({
