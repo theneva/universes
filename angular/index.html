@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="assets/style.css"/>
     <title>Universes</title>
 </head>
-<body ng-controller="MainController">
+<body ng-controller="ApplicationController">
 
 <nav class="navbar navbar-default">
     <div class="container">
@@ -14,7 +15,10 @@
             <li><a href="/#/characters">Characters</a></li>
             <li><a href="/#/somewhere">Somewhere weird</a></li>
         </ul>
-        <p class="navbar-text navbar-right">Hi, there!</p>
+        <p class="navbar-text navbar-right" ng-if="!currentUser"><a href="/#/login">Log in</a></p>
+
+        <p class="navbar-text navbar-right" ng-if="currentUser"><a ng-click="logout()">Log out</a></p>
+        <p class="navbar-text navbar-right" ng-if="currentUser">Hi, {{currentUser}}!</p>
     </div>
 </nav>
 <div class="container" ng-view></div>

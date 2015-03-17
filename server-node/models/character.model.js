@@ -4,6 +4,7 @@ var Character = db.model('Character', {
     name: String,
     nickname: String,
     race: String,
+    imageUrl: String,
     createdAt: { type: Date, default: Date.now }
 });
 

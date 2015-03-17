@@ -1,5 +1,9 @@
 angular.module('universes').config(function ($routeProvider) {
     $routeProvider
+        .when('/login', {
+            controller: 'LoginController',
+            templateUrl: 'templates/login.html'
+        })
         .when('/', {
             controller: 'MainController',
             templateUrl: 'templates/races.html'

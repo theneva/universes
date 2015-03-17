@@ -26,6 +26,9 @@ angular.module('universes').controller('MainController', function ($scope, $http
                 _.remove($scope.races, function (race) {
                     return race._id === id;
                 });
+            })
+            .error(function(message) {
+                console.log(message);
             });
     };
 });
