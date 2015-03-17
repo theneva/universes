@@ -1,0 +1,14 @@
+<h1>{{character.name}}</h1>
+
+<div><b>Background</b>: {{character.name}} is a...</div>
+
+<div style="width: 200px; height: 200px; background-color: orange;"></div>
+
+<dl>
+    <dt>Name</dt>
+    <dd>{{character.name || 'Unknown'}} <span ng-if="character.nickname"> ({{character.nickname}})</span></dd>
+    <dt>Race</dt>
+    <dd>{{character.race || 'Unknown'}}</dd>
+    <dt>Birth</dt>
+    <dd>{{character.birthplace || 'Unknown'}} at {{character.birthdate || 'Unknown'}}</dd>
+</dl>

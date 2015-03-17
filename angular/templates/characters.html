@@ -8,20 +8,28 @@
 <table class="table">
     <tr>
         <th>Name</th>
+        <th>Nickname</th>
         <th>Race</th>
         <th>Created at</th>
         <th></th>
     </tr>
     <tr>
         <td>
-            <form ng-submit="createCharacter(name, race)">
+            <form ng-submit="createCharacter(name, nickname, race)">
                 <div class="form-group">
                     <input class="form-control" type="text" placeholder="Name" ng-model="name"/>
                 </div>
             </form>
         </td>
         <td>
-            <form ng-submit="createCharacter(name, race)">
+            <form ng-submit="createCharacter(name, nickname, race)">
+                <div class="form-group">
+                    <input class="form-control" type="text" placeholder="Nickname" ng-model="nickname"/>
+                </div>
+            </form>
+        </td>
+        <td>
+            <form ng-submit="createCharacter(name, nickname, race)">
                 <div class="form-group">
                     <input class="form-control" type="text" placeholder="Race" ng-model="race"/>
                 </div>
@@ -29,11 +37,14 @@
         </td>
         <td></td>
         <td>
-            <button type="submit" class="btn btn-success" ng-click="createCharacter(name, race)">Create</button>
+            <button type="submit" class="btn btn-success" ng-click="createCharacter(name, nickname, race)">Create</button>
         </td>
     </tr>
     <tr ng-repeat="character in characters | filter: characterFilter | orderBy: '-createdAt'">
-        <td>{{character.name}}</td>
+        <td>
+            <a href="/#/characters/{{character._id}}/{{character.name}}">{{character.name}}</a>
+        </td>
+        <td>{{character.nickname}}</td>
         <td>{{character.race}}</td>
         <td>{{character.createdAt | date:'short'}}</td>
         <td>

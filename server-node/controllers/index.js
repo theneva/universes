@@ -36,6 +36,16 @@ router.get('/characters', function(req, res) {
     });
 });
 
+router.get('/characters/:id', function(req, res) {
+    Character.findById(req.params.id, function(err, character) {
+        if (!character) {
+            return res.status(404).send('No character found with id: ' + req.params.id);
+        }
+
+        res.json(character);
+    });
+})
+
 router.post('/characters', function(req, res) {
     var character = new Character(req.body);
     character.save();
