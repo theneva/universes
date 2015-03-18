@@ -37,7 +37,7 @@
         </td>
         <td></td>
         <td>
-            <button type="submit" class="btn btn-success" ng-click="createCharacter()">Create</button>
+            <button type="submit" class="btn btn-success col-xs-12" ng-click="createCharacter()">Create</button>
         </td>
     </tr>
     <tr ng-repeat="character in characters | filter: characterFilter | orderBy: '-createdAt'">
@@ -48,7 +48,7 @@
         <td>{{character.race}}</td>
         <td>{{character.createdAt | date:'short'}}</td>
         <td>
-            <button class="btn btn-danger btn-sm" ng-click="removeCharacter(character._id)">Remove</button>
+            <button class="btn btn-danger col-xs-12 btn-sm" ng-click="removeCharacter(character._id)">Remove</button>
         </td>
     </tr>
 </table>

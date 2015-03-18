@@ -19,7 +19,7 @@
         </td>
         <td></td>
         <td>
-            <button class="btn btn-success" ng-click="createUser()">Create</button>
+            <button class="btn btn-success col-xs-12" ng-click="createUser()">Create</button>
         </td>
     </tr>
     <tr ng-repeat="user in users | orderBy: 'username'">
@@ -27,7 +27,7 @@
         <td>-</td>
         <td>{{user.createdAt | date: 'short'}}</td>
         <td>
-            <button class="btn btn-danger btn-sm" ng-click="removeUser(user._id)">Remove</button>
+            <button class="btn btn-danger col-xs-12 btn-sm" ng-click="removeUser(user._id)">Remove</button>
         </td>
     </tr>
 </table>

@@ -29,7 +29,7 @@
         </td>
         <td></td>
         <td>
-            <button type="submit" class="btn btn-success" ng-click="createRace()">Create</button>
+            <button type="submit" class="btn btn-success col-xs-12" ng-click="createRace()">Create</button>
         </td>
     </tr>
     <tr ng-repeat="race in races | filter: raceFilter | orderBy: '-createdAt'">
@@ -37,7 +37,7 @@
         <td>{{race.earType}}</td>
         <td>{{race.createdAt | date:'short'}}</td>
         <td>
-            <button class="btn btn-danger btn-sm" ng-click="removeRace(race._id)">Remove</button>
+            <button class="btn btn-danger btn-sm col-xs-12" ng-click="removeRace(race._id)">Remove</button>
         </td>
     </tr>
 </table>
