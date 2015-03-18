@@ -5,7 +5,7 @@ var Character = db.model('Character', {
     nickname: String,
     race: String,
     imageUrl: String,
-    createdAt: { type: Date, default: Date.now }
+    createdAt: {type: Date, default: Date.now}
 });
 
 module.exports = Character;
