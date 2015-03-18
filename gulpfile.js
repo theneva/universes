@@ -71,7 +71,7 @@ gulp.task('dev:node', function () {
     nodemon({
         script: nodeScriptPath,
         ext: 'js',
-        ignore: ['dashboard-angular*', 'gulp*', 'assets*']
+        ignore: ['angular*', 'gulp*', 'assets*']
     });
 });
 

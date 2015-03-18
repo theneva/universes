@@ -4,13 +4,10 @@ angular.module('universes').controller('MainController', function ($scope, $http
             $scope.races = races;
         });
 
-    $scope.createRace = function (raceType, earType) {
-        var newRace = {
-            raceType: raceType,
-            earType: earType
-        };
+    $scope.newRace = {};
 
-        $http.post('/api/races', newRace)
+    $scope.createRace = function () {
+        $http.post('/api/races', $scope.newRace)
             .success(function (race) {
                 $scope.raceType = $scope.earType = '';
                 $scope.races.unshift(race);

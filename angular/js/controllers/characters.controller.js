@@ -4,16 +4,12 @@ angular.module('universes').controller('CharactersController', function ($scope,
             $scope.characters = characters;
         });
 
-    $scope.createCharacter = function (name, nickname, race) {
-        var newCharacter = {
-            name: name,
-            nickname: nickname,
-            race: race
-        };
+    $scope.newCharacter = {};
 
-        $http.post('/api/characters', newCharacter)
+    $scope.createCharacter = function () {
+        $http.post('/api/characters', $scope.newCharacter)
             .success(function (character) {
-                $scope.name = $scope.nickname = $scope.race = '';
+                $scope.newCharacter = {};
                 $scope.characters.unshift(character);
             })
             .error(function (message) {

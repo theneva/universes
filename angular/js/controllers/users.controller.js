@@ -4,13 +4,10 @@ angular.module('universes').controller('UsersController', function($scope, $http
             $scope.users = users;
         });
 
-    $scope.createUser = function(username, password) {
-        var payload = {
-            username: username,
-            password: password
-        };
+    $scope.newUser = {};
 
-        $http.post('/api/users', payload)
+    $scope.createUser = function() {
+        $http.post('/api/users', $scope.newUser)
             .success(function(user) {
                 $scope.users.unshift(user);
                 $scope.username = $scope.password = '';

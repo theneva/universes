@@ -8,21 +8,21 @@
     </tr>
     <tr>
         <td>
-            <form ng-submit="createUser(username, password)">
-                <input type="text" class="form-control" placeholder="Username" ng-model="username"/>
+            <form ng-submit="createUser()">
+                <input type="text" class="form-control" placeholder="Username" ng-model="newUser.username"/>
             </form>
         </td>
         <td>
-            <form ng-submit="createUser(username, password)">
-                <input type="password" class="form-control" placeholder="password" ng-model="password"/>
+            <form ng-submit="createUser()">
+                <input type="password" class="form-control" placeholder="password" ng-model="newUser.password"/>
             </form>
         </td>
         <td></td>
         <td>
-            <button type="submit" class="btn btn-success">Create</button>
+            <button class="btn btn-success" ng-click="createUser()" >Create</button>
         </td>
     </tr>
-    <tr ng-repeat="user in users">
+    <tr ng-repeat="user in users | orderBy: 'username'">
         <td>{{user.username}}</td>
         <td>-</td>
         <td>{{user.createdAt | date: 'short'}}</td>

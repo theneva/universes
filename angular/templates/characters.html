@@ -15,29 +15,29 @@
     </tr>
     <tr>
         <td>
-            <form ng-submit="createCharacter(name, nickname, race)">
+            <form ng-submit="createCharacter()">
                 <div class="form-group">
-                    <input class="form-control" type="text" placeholder="Name" ng-model="name"/>
+                    <input class="form-control" type="text" placeholder="Name" ng-model="newCharacter.name"/>
                 </div>
             </form>
         </td>
         <td>
-            <form ng-submit="createCharacter(name, nickname, race)">
+            <form ng-submit="createCharacter()">
                 <div class="form-group">
-                    <input class="form-control" type="text" placeholder="Nickname" ng-model="nickname"/>
+                    <input class="form-control" type="text" placeholder="Nickname" ng-model="newCharacter.nickname"/>
                 </div>
             </form>
         </td>
         <td>
-            <form ng-submit="createCharacter(name, nickname, race)">
+            <form ng-submit="createCharacter()">
                 <div class="form-group">
-                    <input class="form-control" type="text" placeholder="Race" ng-model="race"/>
+                    <input class="form-control" type="text" placeholder="Race" ng-model="newCharacter.race"/>
                 </div>
             </form>
         </td>
         <td></td>
         <td>
-            <button type="submit" class="btn btn-success" ng-click="createCharacter(name, nickname, race)">Create</button>
+            <button type="submit" class="btn btn-success" ng-click="createCharacter()">Create</button>
         </td>
     </tr>
     <tr ng-repeat="character in characters | filter: characterFilter | orderBy: '-createdAt'">
