@@ -11,7 +11,7 @@ angular.module('universes').service('SessionsService', function ($http) {
             });
     };
 
-    this.logout = function() {
+    this.logout = function () {
         delete $http.defaults.headers.common.Authorization;
     };
 });

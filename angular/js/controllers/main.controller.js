@@ -24,7 +24,7 @@ angular.module('universes').controller('MainController', function ($scope, $http
                     return race._id === id;
                 });
             })
-            .error(function(message) {
+            .error(function (message) {
                 console.log(message);
             });
     };
